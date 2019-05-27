@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Technical documentation of JS</title>
+    <style type="text/css">
+    * {
+  margin:0px;
+  padding:0px;
+  background-color:#708090;
+  font-family:Sans-serif;
+}
+#navbar{
+  width:30%;
+  height:100%;
+  border-right:1px solid;
+  position:fixed;
+  overflow-x:hidden;
+  overflow-y:auto;
+}
+.nav-link{
+  display:block;
+} 
+#navbar header{
+  text-align:center;
+  padding:5px 0px;
+  font-size:130%;
+  position:fixed;
+  Z-index:1;
+  width:30%;
+  border-bottom:1px solid;
+}
+#navbar ul{
+  position:relative;
+  width:100%;
+  top:50px;
+  list-style-type:none;
+  text-align:center;
+}
+#navbar a{
+  text-decoration:none;
+  color:black;
+}
+#navbar ul li{
+  font-size:150%;
+  border-bottom:1px solid black;
+  padding:20px;
+  display:block;
+}
+#main-doc{
+ position:absolute;
+ top:25px;
+ left:35%;
+ Z-index:2;
+}
+#main-doc h2{
+  margin-top:10px;
+  margin-bottom:20px;
+}
+#main-doc ul{
+  margin-left:30px;
+  margin-top:5px;
+}
+code{
+  white-space:pre;
+  background-color:lightgray;
+  position:relative;
+  top:5px;
+  left:10px
+}
+.code{
+  width:90%;
+  background-color:lightgray;
+  color:black;
+  padding-top:5px;
+  padding-bottom:10px;
+  margin:5px;
+}
+
+
+@media (max-width:600px){
+  *{
+    background-color:	#F5F5F5;
+  }
+  #navbar,#main-doc{
+    font-size:80%;
+  }
+}
+    </style>
+</head>
+<body>
+        <nav id="navbar">
+                <header>
+                  <h1>JS简单教程</h1>
+                </header>
+                <ul>
+                  <li><a class="nav-link" href="#introduction">简介</a></li>
+                  <li><a class="nav-link" href="#method">用法</a></li>
+                  <li><a class="nav-link" href="#output">输出</a></li>
+                  <li><a class="nav-link" href="#grammar">语法</a></li>
+                  <li><a class="nav-link" href="#sentence">语句</a></li>
+                  <li><a class="nav-link" href="#comment">注释</a></li>
+                  <li><a class="nav-link" href="#variable">变量</a></li>
+                  <li><a class="nav-link" href="#data_type">数据类型</a></li>
+                  <li><a class="nav-link" href="#object">对象</a></li>
+                  <li><a class="nav-link" href="#function">函数</a></li>
+                  <li><a class="nav-link" href="#scope">作用域</a></li>
+                  <li><a class="nav-link" href="#event">事件</a></li>
+                  <li><a class="nav-link" href="#string">字符串</a></li>
+                  <li><a class="nav-link" href="#operator">运算符</a></li>
+                  <li><a class="nav-link" href="#reference">引用</a></li>
+                </ul>
+              </nav>
+              <main id="main-doc">
+                <section id="introduction">
+                  <header>
+                    <h2>JavaScript 简介</h2>
+                  </header>
+                  <p>JavaScript 是互联网上最流行的脚本语言，这门语言可用于 HTML 和 web，更可广泛用于服务器、PC、笔记本电脑、平板电脑和智能手机等设备。</p>
+                  <p>JavaScript 是脚本语言:</p>
+                  <ul>
+                    <li>JavaScript 是一种轻量级的编程语言。</li>
+                    <li>JavaScript 是可插入 HTML 页面的编程代码。</li>
+                    <li>JavaScript 插入 HTML 页面后，可由所有的现代浏览器执行。</li>
+                  </ul>
+                </section>
+                <section id="method">
+                  <header>
+                    <h2>JavaScript 用法</h>
+                    </header>
+                  <p>HTML 中的脚本必须位于&lt;script&gt;和&lt;/script&gt;标签之间。
+                          脚本可被放置在 HTML 页面的body和head标签部分中。
+              </p>
+                    <div class="code">
+                    <code>&lt;script&gt;
+                      alert("我的第一个 JavaScript");
+                      &lt;/script&gt;
+                    </code></div>
+                    <p>也可以把脚本保存到外部文件中。外部文件通常包含被多个网页使用的代码。外部 JavaScript 文件的文件扩展名是 .js。
+                    如需使用外部文件，请在&lt;script&gt;script&lt;/script&gt;标签的 "src" 属性中设置该 .js 文件：
+              </p>
+                  <div class="code">
+                  <code>&lt;!DOCTYPE html&gt;
+              &lt;html&gt;
+              &lt;body&gt;
+              &li;script src="myScript.js">&li;/script&gt;
+              &lt;body&gt;
+              &lt;/html&gt;
+                  </code></div>
+                  <p>你可以将脚本放置于&lt;head&gt;或者&lt;body&gt;中，放在&lt;script> 标签中的脚本与外部引用的脚本运行效果完全一致。
+              
+              myScript.js 文件代码如下：</p>
+                  <div class="code">
+                    <code>function myFunction()
+              {
+                  document.getElementById("demo").innerHTML="我的第一个 JavaScript 函数";
+              }
+                    </code>
+                  </div>
+                </section>
+                <section id="output">
+                  <header><h2>JavaScript 输出</h2></header>
+                  <p>
+                    JavaScript 没有任何打印或者输出的函数。
+                  </p>
+                  <p>JavaScript 可以通过不同的方式来输出数据：</p>
+                  <ul>
+                    <li>使用 window.alert() 弹出警告框。</li>
+                    <li>使用 document.write() 方法将内容写到 HTML 文档中。</li>
+                    <li>使用 innerHTML 写入到 HTML 元素。</li>
+                    <li>使用 console.log() 写入到浏览器的控制台。</li>
+                  </ul>
+                </section>
+                <section id="grammar">
+                  <header><h2>JavaScript 语法</h2></header>
+                  <p>JavaScript 是一个程序语言。语法规则定义了语言结构。
+              </p>
+                  <p>在编程语言中，一般固定值称为字面量，如 3.14。
+              
+              数字（Number）字面量 可以是整数或者是小数，或者是科学计数(e)。</p>
+                  <div class="code">
+                    <code>3.14
+              
+              1001
+              
+              123e5
+                    </code>
+                  </div>
+                  <p>字符串（String）字面量 可以使用单引号或双引号:</p>
+                  <div class="code">
+                    <code>"John Doe"
+              
+              'John Doe'</code>
+                  </div>
+                  <p>表达式字面量 用于计算：</p>
+                  <div class="code">
+                    <code>5 + 6
+              
+              5 * 10  
+                    </code>
+                  </div>
+                  <p>数组（Array）字面量 定义一个数组：</p>
+                  <div class="code">
+                  <code>[40, 100, 1, 5, 25, 10]
+                  </code></div>
+                  
+                  <p>对象（Object）字面量 定义一个对象：</p>
+                  <div class="code">
+                  <code>{firstName:"John", lastName:"Doe", age:50, eyeColor:"blue"}
+                  </code></div>
+                  
+                      <p>函数（Function）字面量 定义一个函数：</p>
+                  <div class="code">
+                  <code>function myFunction(a, b) { return a * b;}
+                  </code></div>
+              
+                  
+                </section>
+                <section id="sentence">
+                  <header><h2>JavaScript 语句
+              </h2></header>
+                  <p>JavaScript 语句是发给浏览器的命令。这些命令的作用是告诉浏览器要做的事情。下面的JavaScript语句向 id="demo" 的 HTML 元素输出文本 "你好 Dolly" ：</p>
+                  <div class="code">
+                    <code>document.getElementById("demo").innerHTML = "你好 Dolly";
+                    </code>
+                  </div>
+                  
+                </section>
+                <section id="comment">
+                  <header><h2>JavaScript 注释</h2></header>
+                  <p>JavaScript 注释可用于提高代码的可读性。</p>
+                  <p>JavaScript 不会执行注释。
+              
+              我们可以添加注释来对 JavaScript 进行解释，或者提高代码的可读性。
+              
+              单行注释以 // 开头。</p>
+                </section>
+                <section id="variable">
+                  <header><h2>JavaScript 变量</h2></header>
+                  <p>变量是用于存储信息的"容器"。</p>
+                  <div class="code">
+                    <code>var x=5;
+              var y=6;
+              var z=x+y;
+                      
+                    </code>
+                  </div>
+                </section>
+                <section id="data_type">
+                  <header>
+                    <h2>JavaScript 数据类型</h2>
+                  </header>
+                  <p>值类型(基本类型)：字符串（String）、数字(Number)、布尔(Boolean)、对空（Null）、未定义（Undefined）、Symbol。
+              
+              引用数据类型：对象(Object)、数组(Array)、函数(Function)。</p>
+                </section>
+                <section id="object">
+                  <header><h2>JavaScript 对象</h2></header>
+                  <p>你可以使用字符来定义和创建 JavaScript 对象:</p>
+                  <div class="code">
+                    <code>var person = {firstName:"John", lastName:"Doe", age:50, eyeColor:"blue"};</code>
+                  </div>
+                  <p>定义 JavaScript 对象可以跨越多行，空格跟换行不是必须的：</p>
+                  <div class="code">
+                    <code>var person = {
+                  firstName:"John",
+                  lastName:"Doe",
+                  age:50,
+                  eyeColor:"blue"
+              };
+                    </code>
+                  </div>
+                </section>
+                <section id="function">
+                  <header><h2>JavaScript 函数</h2></header>
+                  <p>函数就是包裹在花括号中的代码块，前面使用了关键词 function：</p>
+                  <div class="code">
+                    <code>function functionname()
+              {
+                  // 执行代码
+              }       
+                    </code>
+                  </div>
+                  <p>当调用该函数时，会执行函数内的代码。
+              
+              可以在某事件发生时直接调用函数（比如当用户点击按钮时），并且可由 JavaScript 在任何位置进行调用。</p>
+                </section>
+                <section id="scope">
+                  <header><h2>JavaScript 作用域</h2></header>
+                  <p>作用域是可访问变量的集合。</p>
+                  <P>在 JavaScript 中, 对象和函数同样也是变量。
+              
+              在 JavaScript 中, 作用域为可访问变量，对象，函数的集合。
+              
+              JavaScript 函数作用域: 作用域在函数内修改。
+              </p>
+                </section>
+                <section id="event">
+                  <header><h2>JavaScript 事件</h2></header>
+                  <p>HTML 事件是发生在 HTML 元素上的事情。
+              
+              当在 HTML 页面中使用 JavaScript 时， JavaScript 可以触发这些事件。</p>
+                  <p>HTML 事件可以是浏览器行为，也可以是用户行为。
+              
+              以下是 HTML 事件的实例：
+              
+              </p>
+                  <ul>
+                    <li>HTML 页面完成加载</li>
+                    <li>HTML input 字段改变时</li>
+                    <li>HTML 按钮被点击</li>
+                    
+                  </ul>
+                  <p>通常，当事件发生时，你可以做些事情。
+              
+              在事件触发时 JavaScript 可以执行一些代码。
+              
+              HTML 元素中可以添加事件属性，使用 JavaScript 代码来添加 HTML 元素。</p>
+                </section>
+                <section id="string">
+                  <header><h2>JavaScript 字符串</h2></header>
+                  <p>字符串可以存储一系列字符，如 "John Doe"。
+              
+              字符串可以是插入到引号中的任何字符。你可以使用单引号或双引号：</p>
+                  <div class="code">
+                    <code>var carname = "Volvo XC60";
+              var carname = 'Volvo XC60';
+                    </code>
+                    
+                  </div>
+                  <p>字符串的索引从 0 开始，这意味着第一个字符索引值为 [0],第二个为 [1], 以此类推。
+              
+              你可以在字符串中使用引号，字符串中的引号不要与字符串的引号相同:</p>
+                  <div class="code">
+                    <code>var answer = "It's alright";
+              var answer = "He is called 'Johnny'";
+              var answer = 'He is called "Johnny"';
+                    </code>
+                  </div>
+                </section>
+                <section id="operator">
+                  <header><h2>JavaScript 运算符</h2></header>
+                  <p>运算符 = 用于赋值。
+              
+              运算符 + 用于加值。
+              
+              </p>
+                  <p>
+              运算符 = 用于给 JavaScript 变量赋值。
+              
+              算术运算符 + 用于把值加起来。</p>
+                  <div class="code">
+                    <code>y=5;
+              z=2;
+              x=y+z;        
+                    </code>
+                  </div>
+                </section>
+                <section id="reference">
+                  <header><h2>引用</h2></header>
+                  <ul>
+                    <li>所有的文档在这个网页中都是来源于 <a href="http://www.runoob.com/" target="_blank">runoob.com</a></li>
+                  </ul>
+                </section>
+                
+                </mian>
+    
+</body>
+</html>
